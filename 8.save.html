@@ -28,7 +28,7 @@
       // 3. 데이터로 모델을 학습시킵니다.
       // var fitParam = { epochs: 5000 };
       var fitParam = {
-        epochs: 5000,
+        epochs: 500,
         callbacks: {
           onEpochEnd: function (epoch, logs) {
             console.log("epoch", epoch, logs, "RMSE=>", Math.sqrt(logs.loss));
@@ -46,6 +46,11 @@
         var 다음주원인 = tf.tensor(다음주온도);
         var 다음주결과 = model.predict(다음주원인);
         다음주결과.print();
+
+        //모델 다운로드
+        //model.save("downloads://my-model");
+        //로컬 스토리지
+        model.save("localstorage://my-model");
       });
     </script>
   </body>
